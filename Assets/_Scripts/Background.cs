@@ -16,4 +16,9 @@ public class Background : MonoBehaviour
 
         if (bgOffset >= 1) bgOffset -= 1;
     }
+
+    public void SetSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
 }
