@@ -49,11 +49,6 @@ public class PlayerController : MonoBehaviour
             this.transform.position = new Vector2(this.transform.position.x, -5f);
             PlayerOnHit();
         }
-
-        if(collision.transform.tag == "Cheese")
-        {
-            Debug.Log("Penguin Win!");
-        }
     }
 
     private void Start()
@@ -66,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
         if(mode == PlayMode.Penguin)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift)) isJump = 1;
+            //if (Input.GetKeyDown(KeyCode.LeftShift)) isJump = 1;
 
             this.GetComponent<SpriteRenderer>().sprite = rb.velocity.y > 0 ? penguinUp : penguinDown;
         }
@@ -101,7 +96,15 @@ public class PlayerController : MonoBehaviour
     {
         if(beHit)
         {
-            rb.velocity += new Vector2(-0.5f, 0.0f);
+            if(mode == PlayMode.Penguin)
+            {
+                rb.velocity += new Vector2(-0.5f, 0.0f);
+            }
+            else
+            {
+                rb.velocity += new Vector2(-0.8f, 0.0f);
+            }
+            
             beHit = false;
         }
     }
@@ -136,5 +139,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    public void ActJump(int jump)
+    {
+        isJump = jump;
+    }
 }
