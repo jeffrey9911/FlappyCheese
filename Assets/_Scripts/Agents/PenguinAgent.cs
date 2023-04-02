@@ -10,17 +10,25 @@ public class PenguinAgent : Agent
 {
 
     [SerializeField] private Transform cheeseTransform;
+    [SerializeField] private Transform ceilingTransform;
+    [SerializeField] private Transform bottomTransform;
 
     public override void OnEpisodeBegin()
     {
-        this.transform.localPosition = new Vector3(-2, 0, 0);
+        this.transform.localPosition = new Vector3(-1.63f, -0.197f, 0);
         this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
+        float worldHeight = 10f;
+        float heightNormalized = (this.transform.position.y + (worldHeight / 2f)) / worldHeight;
+        sensor.AddObservation(heightNormalized);
+
         sensor.AddObservation(this.transform.position);
         sensor.AddObservation(cheeseTransform.position);
+        sensor.AddObservation(ceilingTransform.position);
+        sensor.AddObservation(bottomTransform.position);
         sensor.AddObservation(RockManager.instance.genInterval);
         sensor.AddObservation(RockManager.instance.moveSpeed);
         sensor.AddObservation(RockManager.instance.topRockHeight);
@@ -49,6 +57,14 @@ public class PenguinAgent : Agent
             cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
             EndEpisode();
         }
+
+        if (collision.transform.tag == "BotEdge" || collision.transform.tag == "TopEdge")
+        {
+            Debug.Log("Penguin Hit Edge. Penguin Lose.");
+            cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
+            SetReward(-1f);
+            EndEpisode();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -60,6 +76,11 @@ public class PenguinAgent : Agent
             cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
             EndEpisode();
         }
+    }
+
+    public void EndByCheese()
+    {
+        EndEpisode();
     }
 
 }

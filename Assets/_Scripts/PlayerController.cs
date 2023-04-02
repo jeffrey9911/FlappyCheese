@@ -37,18 +37,7 @@ public class PlayerController : MonoBehaviour
         // BOT -5.4
         // TOP P:5 C:5.4
 
-        if (collision.transform.tag == "BotEdge")
-        {
-            if (mode == PlayMode.Penguin) this.transform.position = new Vector2(this.transform.position.x, 5);
-            if (mode == PlayMode.Cheese) this.transform.position = new Vector2(this.transform.position.x, 5.4f);
-            PlayerOnHit();
-        }
-
-        if (collision.transform.tag == "TopEdge")
-        {
-            this.transform.position = new Vector2(this.transform.position.x, -5f);
-            PlayerOnHit();
-        }
+        
     }
 
     private void Start()

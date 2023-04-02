@@ -8,7 +8,8 @@ public class RockManager : MonoBehaviour
 
     [SerializeField] private GameObject _topRock;
     [SerializeField] private GameObject _botRock;
-    
+
+    [SerializeField] private Transform parent;
 
     float gameplayTimer = 0;
     float genTimer = 0;
@@ -81,12 +82,14 @@ public class RockManager : MonoBehaviour
         float randomHeight = Random.Range(0.2f, 1.3f);
 
         GameObject topObj = Instantiate(_topRock, new Vector2(10, 5.1f), Quaternion.identity);
+        topObj.transform.SetParent(parent);
         topObj.GetComponent<Rock>().SetSpeed(speed, 5.1f);
         topRockHeight = randomHeight - 1.5f;
         topObj.transform.localScale = new Vector3(0.8f, topRockHeight, 0.8f);
 
 
         GameObject botObj = Instantiate(_botRock, new Vector2(10, -5.1f), Quaternion.identity);
+        botObj.transform.SetParent(parent);
         botObj.GetComponent<Rock>().SetSpeed(speed, -5.1f);
         botRockHeight = randomHeight;
         botObj.transform.localScale = new Vector3(0.8f, botRockHeight, 0.8f);

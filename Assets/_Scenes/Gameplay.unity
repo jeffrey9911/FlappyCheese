@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &27214894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 27214895}
+  m_Layer: 0
+  m_Name: ROCKS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &27214895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27214894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1083040940}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &27745891
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +957,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304355173}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ac6bc24996ad5b49b519e70e3dd36b1, type: 3}
   m_Name: 
@@ -936,6 +967,8 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   penguinTransform: {fileID: 1513839380}
+  ceilingTransform: {fileID: 367959728}
+  bottomTransform: {fileID: 851300622}
 --- !u!114 &304355181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -949,7 +982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 10
+    VectorObservationSize: 17
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -1212,7 +1245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8bea2fa15b2407296813cab6374264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 10
+  rotateSpeed: 100
 --- !u!1 &599745002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,6 +2013,7 @@ Transform:
   - {fileID: 1040644440}
   - {fileID: 1480399485}
   - {fileID: 520235128}
+  - {fileID: 27214895}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2793,6 +2827,8 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   cheeseTransform: {fileID: 304355178}
+  ceilingTransform: {fileID: 367959728}
+  bottomTransform: {fileID: 851300622}
 --- !u!114 &1513839383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2806,7 +2842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 10
+    VectorObservationSize: 17
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -2815,9 +2851,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 039cc22fbe0c2463c9291a2a91530a72, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 2
+  m_BehaviorType: 0
   m_BehaviorName: PenguinChaseBehaviour
   TeamId: 0
   m_UseChildSensors: 1
@@ -3412,7 +3448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8bea2fa15b2407296813cab6374264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 10
+  rotateSpeed: 100
 --- !u!1 &1946339858
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,6 +3480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _topRock: {fileID: 7098222264702420396, guid: d3b086c3350a742aca06214b4cffc87d, type: 3}
   _botRock: {fileID: 2321038081203203100, guid: 62a7f0d24637d4606900db108c835090, type: 3}
+  parent: {fileID: 27214895}
   genInterval: 1
   moveSpeed: 0
   topRockHeight: 0
