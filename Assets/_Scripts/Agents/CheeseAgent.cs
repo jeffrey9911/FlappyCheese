@@ -20,7 +20,10 @@ public class CheeseAgent : Agent
     {
         sensor.AddObservation(this.transform.position);
         sensor.AddObservation(penguinTransform.position);
-        sensor.AddObservation(this.transform.GetChild(0).GetComponent<RayPerceptionSensorComponent2D>());
+        sensor.AddObservation(RockManager.instance.genInterval);
+        sensor.AddObservation(RockManager.instance.moveSpeed);
+        sensor.AddObservation(RockManager.instance.topRockHeight);
+        sensor.AddObservation(RockManager.instance.botRockHeight);
     }
 
     public override void OnActionReceived(ActionBuffers actions)

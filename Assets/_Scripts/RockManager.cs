@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class RockManager : MonoBehaviour
 {
+    public static RockManager instance;
+
     [SerializeField] private GameObject _topRock;
     [SerializeField] private GameObject _botRock;
     
 
     float gameplayTimer = 0;
     float genTimer = 0;
-    float genInterval = 1;
+    
+    public float genInterval = 1;
 
-    float moveSpeed;
+    public float moveSpeed = 0f;
+
+    public float topRockHeight = 0f;
+    public float botRockHeight = 0f;
+    
+
+    private void Awake()
+    {
+        if(!instance)
+        {
+            instance = this;
+        }
+    }
 
     private void Update()
     {
@@ -67,11 +82,13 @@ public class RockManager : MonoBehaviour
 
         GameObject topObj = Instantiate(_topRock, new Vector2(10, 5.1f), Quaternion.identity);
         topObj.GetComponent<Rock>().SetSpeed(speed, 5.1f);
-        topObj.transform.localScale = new Vector3(0.8f, randomHeight - 1.5f, 0.8f);
+        topRockHeight = randomHeight - 1.5f;
+        topObj.transform.localScale = new Vector3(0.8f, topRockHeight, 0.8f);
 
 
         GameObject botObj = Instantiate(_botRock, new Vector2(10, -5.1f), Quaternion.identity);
         botObj.GetComponent<Rock>().SetSpeed(speed, -5.1f);
-        botObj.transform.localScale = new Vector3(0.8f, randomHeight, 0.8f);
+        botRockHeight = randomHeight;
+        botObj.transform.localScale = new Vector3(0.8f, botRockHeight, 0.8f);
     }
 }
