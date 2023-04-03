@@ -1,0 +1,69 @@
+{
+    "PenguinChaseBehaviour": {
+        "checkpoints": [
+            {
+                "steps": 499946,
+                "file_path": "results\\learn#2\\PenguinChaseBehaviour\\PenguinChaseBehaviour-499946.onnx",
+                "reward": -0.2,
+                "creation_time": 1680475213.1569383,
+                "auxillary_file_paths": [
+                    "results\\learn#2\\PenguinChaseBehaviour\\PenguinChaseBehaviour-499946.pt"
+                ]
+            },
+            {
+                "steps": 500010,
+                "file_path": "results\\learn#2\\PenguinChaseBehaviour\\PenguinChaseBehaviour-500010.onnx",
+                "reward": -0.2,
+                "creation_time": 1680475213.274883,
+                "auxillary_file_paths": [
+                    "results\\learn#2\\PenguinChaseBehaviour\\PenguinChaseBehaviour-500010.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500010,
+            "file_path": "results\\learn#2\\PenguinChaseBehaviour.onnx",
+            "reward": -0.2,
+            "creation_time": 1680475213.274883,
+            "auxillary_file_paths": [
+                "results\\learn#2\\PenguinChaseBehaviour\\PenguinChaseBehaviour-500010.pt"
+            ]
+        }
+    },
+    "CheeseRunBehaviour": {
+        "checkpoints": [
+            {
+                "steps": 499946,
+                "file_path": "results\\learn#2\\CheeseRunBehaviour\\CheeseRunBehaviour-499946.onnx",
+                "reward": -0.620500004128553,
+                "creation_time": 1680475213.2282953,
+                "auxillary_file_paths": [
+                    "results\\learn#2\\CheeseRunBehaviour\\CheeseRunBehaviour-499946.pt"
+                ]
+            },
+            {
+                "steps": 500010,
+                "file_path": "results\\learn#2\\CheeseRunBehaviour\\CheeseRunBehaviour-500010.onnx",
+                "reward": -0.620500004128553,
+                "creation_time": 1680475213.3260126,
+                "auxillary_file_paths": [
+                    "results\\learn#2\\CheeseRunBehaviour\\CheeseRunBehaviour-500010.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500010,
+            "file_path": "results\\learn#2\\CheeseRunBehaviour.onnx",
+            "reward": -0.620500004128553,
+            "creation_time": 1680475213.3260126,
+            "auxillary_file_paths": [
+                "results\\learn#2\\CheeseRunBehaviour\\CheeseRunBehaviour-500010.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.7.0+cu110"
+    }
+}

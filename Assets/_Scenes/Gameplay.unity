@@ -965,7 +965,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
+  MaxStep: 1000000
   penguinTransform: {fileID: 1513839380}
   ceilingTransform: {fileID: 367959728}
   bottomTransform: {fileID: 851300622}
@@ -991,7 +991,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 08c1d315151d240d68eeb02f75661273, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: CheeseRunBehaviour
@@ -2825,7 +2825,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
+  MaxStep: 1000000
   cheeseTransform: {fileID: 304355178}
   ceilingTransform: {fileID: 367959728}
   bottomTransform: {fileID: 851300622}
@@ -2851,7 +2851,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 039cc22fbe0c2463c9291a2a91530a72, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: PenguinChaseBehaviour
