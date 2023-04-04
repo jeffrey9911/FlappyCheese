@@ -12,7 +12,7 @@ public class RockManager : MonoBehaviour
 
     [SerializeField] private Transform parent;
 
-    float gameplayTimer = 0;
+    //float gameplayTimer = 0;
     float genTimer = 0;
     
     public float genInterval = 1;
@@ -33,41 +33,8 @@ public class RockManager : MonoBehaviour
 
     private void Update()
     {
-        gameplayTimer += Time.deltaTime;
-
-
-        switch (gameplayTimer)
-        {
-            case > 90f:
-                moveSpeed = 11;
-                genInterval = 0.9f;
-                break;
-
-            case > 70f:
-                moveSpeed = 9;
-                genInterval = 1.0f;
-                break;
-
-            case > 40f:
-                moveSpeed = 6;
-                genInterval = 1.3f;
-                break;
-
-            case > 20f:
-                moveSpeed = 4;
-                genInterval = 1.5f;
-                break;
-
-            case > 10f:
-                moveSpeed = 3;
-                genInterval = 1.8f;
-                break;
-
-            default:
-                moveSpeed = 2;
-                genInterval = 2.0f;
-                break;
-        }
+        moveSpeed = 8;
+        genInterval = 0.8f;
 
         if (genTimer >= genInterval)
         {

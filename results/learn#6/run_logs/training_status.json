@@ -1,0 +1,65 @@
+{
+    "PenguinChaseBehaviour": {
+        "checkpoints": [
+            {
+                "steps": 3499989,
+                "file_path": "results\\learn#6\\PenguinChaseBehaviour\\PenguinChaseBehaviour-3499989.onnx",
+                "reward": 178.07142857142858,
+                "creation_time": 1680640752.529967,
+                "auxillary_file_paths": [
+                    "results\\learn#6\\PenguinChaseBehaviour\\PenguinChaseBehaviour-3499989.pt"
+                ]
+            },
+            {
+                "steps": 3999996,
+                "file_path": "results\\learn#6\\PenguinChaseBehaviour\\PenguinChaseBehaviour-3999996.onnx",
+                "reward": 306.5,
+                "creation_time": 1680641176.2788322,
+                "auxillary_file_paths": [
+                    "results\\learn#6\\PenguinChaseBehaviour\\PenguinChaseBehaviour-3999996.pt"
+                ]
+            },
+            {
+                "steps": 4499971,
+                "file_path": "results\\learn#6\\PenguinChaseBehaviour\\PenguinChaseBehaviour-4499971.onnx",
+                "reward": 260.25,
+                "creation_time": 1680641599.1940253,
+                "auxillary_file_paths": [
+                    "results\\learn#6\\PenguinChaseBehaviour\\PenguinChaseBehaviour-4499971.pt"
+                ]
+            },
+            {
+                "steps": 4999994,
+                "file_path": "results\\learn#6\\PenguinChaseBehaviour\\PenguinChaseBehaviour-4999994.onnx",
+                "reward": 213.25,
+                "creation_time": 1680642024.2538035,
+                "auxillary_file_paths": [
+                    "results\\learn#6\\PenguinChaseBehaviour\\PenguinChaseBehaviour-4999994.pt"
+                ]
+            },
+            {
+                "steps": 5000186,
+                "file_path": "results\\learn#6\\PenguinChaseBehaviour\\PenguinChaseBehaviour-5000186.onnx",
+                "reward": 213.25,
+                "creation_time": 1680642024.3186827,
+                "auxillary_file_paths": [
+                    "results\\learn#6\\PenguinChaseBehaviour\\PenguinChaseBehaviour-5000186.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 5000186,
+            "file_path": "results\\learn#6\\PenguinChaseBehaviour.onnx",
+            "reward": 213.25,
+            "creation_time": 1680642024.3186827,
+            "auxillary_file_paths": [
+                "results\\learn#6\\PenguinChaseBehaviour\\PenguinChaseBehaviour-5000186.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.7.0+cu110"
+    }
+}

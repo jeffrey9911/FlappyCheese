@@ -13,6 +13,8 @@ public class PenguinAgent : Agent
     [SerializeField] private Transform ceilingTransform;
     [SerializeField] private Transform bottomTransform;
 
+    int isJump = 0;
+
     private AgentSensor sensorArea;
 
     private void Start()
@@ -29,6 +31,15 @@ public class PenguinAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
+        sensor.AddObservation(this.GetComponent<Rigidbody2D>().velocity);
+
+        if(isJump == 1)
+        {
+            this.GetComponent<Rigidbody2D>().velocity = new Vector2(this.GetComponent<Rigidbody2D>().velocity.x, 10);
+            isJump = 0;
+        }
+
+        /*
         sensor.AddObservation(this.transform.position);
         sensor.AddObservation(ceilingTransform.position);
         sensor.AddObservation(bottomTransform.position);
@@ -40,7 +51,7 @@ public class PenguinAgent : Agent
         sensor.AddObservation(sensorArea.goalAreaC);
         sensor.AddObservation(sensorArea.goalAreaP);
 
-        /*
+       
         sensor.AddObservation(RockManager.instance.genInterval);
         sensor.AddObservation(RockManager.instance.moveSpeed);
         sensor.AddObservation(RockManager.instance.topRockHeight);
@@ -50,15 +61,7 @@ public class PenguinAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        int actJump = actions.DiscreteActions[0];
-        
-        this.GetComponent<PlayerController>().ActJump(actJump);
-    }
-
-    public override void Heuristic(in ActionBuffers actionsOut)
-    {
-        ActionSegment<int> discreteAction = actionsOut.DiscreteActions;
-        discreteAction[0] = Input.GetKeyDown(KeyCode.LeftShift) ? 1 : 0;
+        isJump = actions.DiscreteActions[0];
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
