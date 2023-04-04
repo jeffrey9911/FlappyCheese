@@ -1,0 +1,69 @@
+{
+    "CheeseRunBehaviour": {
+        "checkpoints": [
+            {
+                "steps": 499997,
+                "file_path": "results\\learn#4\\CheeseRunBehaviour\\CheeseRunBehaviour-499997.onnx",
+                "reward": -0.14720416124837452,
+                "creation_time": 1680572062.3256822,
+                "auxillary_file_paths": [
+                    "results\\learn#4\\CheeseRunBehaviour\\CheeseRunBehaviour-499997.pt"
+                ]
+            },
+            {
+                "steps": 501457,
+                "file_path": "results\\learn#4\\CheeseRunBehaviour\\CheeseRunBehaviour-501457.onnx",
+                "reward": -0.14522913438122648,
+                "creation_time": 1680572084.753546,
+                "auxillary_file_paths": [
+                    "results\\learn#4\\CheeseRunBehaviour\\CheeseRunBehaviour-501457.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 501457,
+            "file_path": "results\\learn#4\\CheeseRunBehaviour.onnx",
+            "reward": -0.14522913438122648,
+            "creation_time": 1680572084.753546,
+            "auxillary_file_paths": [
+                "results\\learn#4\\CheeseRunBehaviour\\CheeseRunBehaviour-501457.pt"
+            ]
+        }
+    },
+    "PenguinChaseBehaviour": {
+        "checkpoints": [
+            {
+                "steps": 499997,
+                "file_path": "results\\learn#4\\PenguinChaseBehaviour\\PenguinChaseBehaviour-499997.onnx",
+                "reward": -0.7255779269202088,
+                "creation_time": 1680572062.409767,
+                "auxillary_file_paths": [
+                    "results\\learn#4\\PenguinChaseBehaviour\\PenguinChaseBehaviour-499997.pt"
+                ]
+            },
+            {
+                "steps": 501457,
+                "file_path": "results\\learn#4\\PenguinChaseBehaviour\\PenguinChaseBehaviour-501457.onnx",
+                "reward": -0.7305143578415904,
+                "creation_time": 1680572084.7994366,
+                "auxillary_file_paths": [
+                    "results\\learn#4\\PenguinChaseBehaviour\\PenguinChaseBehaviour-501457.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 501457,
+            "file_path": "results\\learn#4\\PenguinChaseBehaviour.onnx",
+            "reward": -0.7305143578415904,
+            "creation_time": 1680572084.7994366,
+            "auxillary_file_paths": [
+                "results\\learn#4\\PenguinChaseBehaviour\\PenguinChaseBehaviour-501457.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.7.0+cu110"
+    }
+}

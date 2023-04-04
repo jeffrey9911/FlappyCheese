@@ -13,6 +13,13 @@ public class PenguinAgent : Agent
     [SerializeField] private Transform ceilingTransform;
     [SerializeField] private Transform bottomTransform;
 
+    private AgentSensor sensorArea;
+
+    private void Start()
+    {
+        sensorArea = this.transform.Find("Ring").Find("Sensor").GetComponent<AgentSensor>();
+    }
+
     public override void OnEpisodeBegin()
     {
         this.transform.localPosition = new Vector3(-1.63f, -0.197f, 0);
@@ -29,6 +36,14 @@ public class PenguinAgent : Agent
         sensor.AddObservation(cheeseTransform.position);
         sensor.AddObservation(ceilingTransform.position);
         sensor.AddObservation(bottomTransform.position);
+
+        sensor.AddObservation(sensorArea.topRockC);
+        sensor.AddObservation(sensorArea.topRockP);
+        sensor.AddObservation(sensorArea.botRockC);
+        sensor.AddObservation(sensorArea.botRockP);
+        sensor.AddObservation(sensorArea.goalAreaC);
+        sensor.AddObservation(sensorArea.goalAreaP);
+
         sensor.AddObservation(RockManager.instance.genInterval);
         sensor.AddObservation(RockManager.instance.moveSpeed);
         sensor.AddObservation(RockManager.instance.topRockHeight);
@@ -52,17 +67,17 @@ public class PenguinAgent : Agent
     {
         if(collision.transform.tag == "Cheese")
         {
-            Debug.Log("Penguin Win!");
-            SetReward(1f);
+            //Debug.Log("Penguin Win!");
+            AddReward(10f);
             cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
             EndEpisode();
         }
 
         if (collision.transform.tag == "BotEdge" || collision.transform.tag == "TopEdge")
         {
-            Debug.Log("Penguin Hit Edge. Penguin Lose.");
+            //Debug.Log("Penguin Hit Edge. Penguin Lose.");
             cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
-            SetReward(-1f);
+            AddReward(-10f);
             EndEpisode();
         }
     }
@@ -71,10 +86,27 @@ public class PenguinAgent : Agent
     {
         if(collision.tag == "LeftEdge")
         {
-            Debug.Log("Penguin Lose!");
-            SetReward(-1f);
+            //Debug.Log("Penguin Lose!");
+            AddReward(-10f);
             cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
             EndEpisode();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "TopRock" || collision.tag == "BotRock")
+        {
+            //Debug.Log("Penguin Hit Rock!");
+            AddReward(-1f);
+            cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
+            EndEpisode();
+        }
+
+        if(collision.tag == "Goal")
+        {
+            //Debug.Log("Penguin Hit Goal!");
+            AddReward(1f);
         }
     }
 
