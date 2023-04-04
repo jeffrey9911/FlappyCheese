@@ -24,16 +24,12 @@ public class PenguinAgent : Agent
     {
         this.transform.localPosition = new Vector3(-1.63f, -0.197f, 0);
         this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        SetReward(0);
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        float worldHeight = 10f;
-        float heightNormalized = (this.transform.position.y + (worldHeight / 2f)) / worldHeight;
-        sensor.AddObservation(heightNormalized);
-
         sensor.AddObservation(this.transform.position);
-        sensor.AddObservation(cheeseTransform.position);
         sensor.AddObservation(ceilingTransform.position);
         sensor.AddObservation(bottomTransform.position);
 
@@ -44,10 +40,12 @@ public class PenguinAgent : Agent
         sensor.AddObservation(sensorArea.goalAreaC);
         sensor.AddObservation(sensorArea.goalAreaP);
 
+        /*
         sensor.AddObservation(RockManager.instance.genInterval);
         sensor.AddObservation(RockManager.instance.moveSpeed);
         sensor.AddObservation(RockManager.instance.topRockHeight);
-        sensor.AddObservation(RockManager.instance.botRockHeight);
+        sensor.AddObservation(RockManager.instance.botRockHeight);*/
+        AddReward(0.5f);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -69,14 +67,14 @@ public class PenguinAgent : Agent
         {
             //Debug.Log("Penguin Win!");
             AddReward(10f);
-            cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
+            //cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
             EndEpisode();
         }
 
         if (collision.transform.tag == "BotEdge" || collision.transform.tag == "TopEdge")
         {
             //Debug.Log("Penguin Hit Edge. Penguin Lose.");
-            cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
+            //cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
             AddReward(-10f);
             EndEpisode();
         }
@@ -88,7 +86,7 @@ public class PenguinAgent : Agent
         {
             //Debug.Log("Penguin Lose!");
             AddReward(-10f);
-            cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
+            //cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
             EndEpisode();
         }
     }
@@ -98,9 +96,8 @@ public class PenguinAgent : Agent
         if(collision.tag == "TopRock" || collision.tag == "BotRock")
         {
             //Debug.Log("Penguin Hit Rock!");
-            AddReward(-1f);
-            cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
-            EndEpisode();
+            AddReward(-5f);
+            //cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
         }
 
         if(collision.tag == "Goal")

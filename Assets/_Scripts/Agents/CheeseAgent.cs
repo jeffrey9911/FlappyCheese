@@ -28,6 +28,7 @@ public class CheeseAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
+        /*
         float worldHeight = 10f;
         float heightNormalized = (this.transform.position.y + (worldHeight / 2f)) / worldHeight;
         sensor.AddObservation(heightNormalized);
@@ -48,7 +49,8 @@ public class CheeseAgent : Agent
         sensor.AddObservation(RockManager.instance.genInterval);
         sensor.AddObservation(RockManager.instance.moveSpeed);
         sensor.AddObservation(RockManager.instance.topRockHeight);
-        sensor.AddObservation(RockManager.instance.botRockHeight);
+        sensor.AddObservation(RockManager.instance.botRockHeight);*/
+        AddReward(0.5f);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -87,7 +89,6 @@ public class CheeseAgent : Agent
         {
             //Debug.Log("Cheese Hit Rock!");
             AddReward(-1f);
-            EndEpisode();
         }
 
         if (collision.tag == "Goal")

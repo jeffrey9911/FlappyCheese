@@ -82,24 +82,27 @@ public class RockManager : MonoBehaviour
     {
         float randomHeight = Random.Range(0.2f, 1.3f);
 
-        GameObject topObj = Instantiate(_topRock, new Vector2(10, 5.1f), Quaternion.identity);
-        topObj.transform.SetParent(parent);
-        topObj.GetComponent<Rock>().SetSpeed(speed, 5.1f);
+        GameObject topObj = Instantiate(_topRock, parent);
+        topObj.transform.localPosition = new Vector2(10, 5.1f);
         topRockHeight = randomHeight - 1.5f;
         topObj.transform.localScale = new Vector3(0.8f, topRockHeight, 0.8f);
+        topObj.GetComponent<Rock>().SetSpeed(speed, 5.1f);
 
 
-        GameObject botObj = Instantiate(_botRock, new Vector2(10, -5.1f), Quaternion.identity);
-        botObj.transform.SetParent(parent);
-        botObj.GetComponent<Rock>().SetSpeed(speed, -5.1f);
+        GameObject botObj = Instantiate(_botRock, parent);
+        botObj.transform.localPosition = new Vector2(10, -5.1f);
         botRockHeight = randomHeight;
         botObj.transform.localScale = new Vector3(0.8f, botRockHeight, 0.8f);
+        botObj.GetComponent<Rock>().SetSpeed(speed, -5.1f);
+
+
         Bounds botBounds = botObj.GetComponent<SpriteRenderer>().bounds;
         float botTop = botBounds.size.y;
         botTop += -5.1f;
 
-        GameObject goalArea = Instantiate(_goalArea, new Vector2(10, botTop), Quaternion.identity);
-        goalArea.transform.SetParent(botObj.transform);
+        GameObject goalArea = Instantiate(_goalArea, parent);
+        goalArea.transform.localPosition = new Vector2(10, botTop);
+        goalArea.GetComponent<Goal>().SetSpeed(speed, botTop);
 
     }
 }

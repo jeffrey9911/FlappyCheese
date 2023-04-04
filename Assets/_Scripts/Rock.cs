@@ -16,7 +16,7 @@ public class Rock : MonoBehaviour
 
     private void Update()
     {
-        if(moveSpeed != 0) this.transform.position = new Vector2(this.transform.position.x - (Time.deltaTime * moveSpeed), posY);
+        if(moveSpeed != 0) this.transform.localPosition = new Vector2(this.transform.localPosition.x - (Time.deltaTime * moveSpeed), posY);
     }
 
     public void SetSpeed(float speed, float pos)
