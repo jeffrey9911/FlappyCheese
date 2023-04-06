@@ -1,0 +1,105 @@
+{
+    "PenguinChaseBehaviour": {
+        "checkpoints": [
+            {
+                "steps": 499978,
+                "file_path": "results\\leanr#7\\PenguinChaseBehaviour\\PenguinChaseBehaviour-499978.onnx",
+                "reward": 119.38888888888889,
+                "creation_time": 1680818875.6769428,
+                "auxillary_file_paths": [
+                    "results\\leanr#7\\PenguinChaseBehaviour\\PenguinChaseBehaviour-499978.pt"
+                ]
+            },
+            {
+                "steps": 999990,
+                "file_path": "results\\leanr#7\\PenguinChaseBehaviour\\PenguinChaseBehaviour-999990.onnx",
+                "reward": 147.8125,
+                "creation_time": 1680819645.6178625,
+                "auxillary_file_paths": [
+                    "results\\leanr#7\\PenguinChaseBehaviour\\PenguinChaseBehaviour-999990.pt"
+                ]
+            },
+            {
+                "steps": 1499958,
+                "file_path": "results\\leanr#7\\PenguinChaseBehaviour\\PenguinChaseBehaviour-1499958.onnx",
+                "reward": 188.5,
+                "creation_time": 1680820412.2476346,
+                "auxillary_file_paths": [
+                    "results\\leanr#7\\PenguinChaseBehaviour\\PenguinChaseBehaviour-1499958.pt"
+                ]
+            },
+            {
+                "steps": 1552028,
+                "file_path": "results\\leanr#7\\PenguinChaseBehaviour\\PenguinChaseBehaviour-1552028.onnx",
+                "reward": null,
+                "creation_time": 1680820501.3268106,
+                "auxillary_file_paths": [
+                    "results\\leanr#7\\PenguinChaseBehaviour\\PenguinChaseBehaviour-1552028.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1552028,
+            "file_path": "results\\leanr#7\\PenguinChaseBehaviour.onnx",
+            "reward": null,
+            "creation_time": 1680820501.3268106,
+            "auxillary_file_paths": [
+                "results\\leanr#7\\PenguinChaseBehaviour\\PenguinChaseBehaviour-1552028.pt"
+            ]
+        }
+    },
+    "CheeseRunBehaviour": {
+        "checkpoints": [
+            {
+                "steps": 499978,
+                "file_path": "results\\leanr#7\\CheeseRunBehaviour\\CheeseRunBehaviour-499978.onnx",
+                "reward": 320.1666666666667,
+                "creation_time": 1680818875.757291,
+                "auxillary_file_paths": [
+                    "results\\leanr#7\\CheeseRunBehaviour\\CheeseRunBehaviour-499978.pt"
+                ]
+            },
+            {
+                "steps": 999990,
+                "file_path": "results\\leanr#7\\CheeseRunBehaviour\\CheeseRunBehaviour-999990.onnx",
+                "reward": 361.0625,
+                "creation_time": 1680819645.6886013,
+                "auxillary_file_paths": [
+                    "results\\leanr#7\\CheeseRunBehaviour\\CheeseRunBehaviour-999990.pt"
+                ]
+            },
+            {
+                "steps": 1499958,
+                "file_path": "results\\leanr#7\\CheeseRunBehaviour\\CheeseRunBehaviour-1499958.onnx",
+                "reward": 445.7,
+                "creation_time": 1680820412.327635,
+                "auxillary_file_paths": [
+                    "results\\leanr#7\\CheeseRunBehaviour\\CheeseRunBehaviour-1499958.pt"
+                ]
+            },
+            {
+                "steps": 1552028,
+                "file_path": "results\\leanr#7\\CheeseRunBehaviour\\CheeseRunBehaviour-1552028.onnx",
+                "reward": null,
+                "creation_time": 1680820501.3830414,
+                "auxillary_file_paths": [
+                    "results\\leanr#7\\CheeseRunBehaviour\\CheeseRunBehaviour-1552028.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1552028,
+            "file_path": "results\\leanr#7\\CheeseRunBehaviour.onnx",
+            "reward": null,
+            "creation_time": 1680820501.3830414,
+            "auxillary_file_paths": [
+                "results\\leanr#7\\CheeseRunBehaviour\\CheeseRunBehaviour-1552028.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.7.0+cu110"
+    }
+}

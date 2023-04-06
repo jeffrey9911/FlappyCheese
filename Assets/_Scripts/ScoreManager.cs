@@ -13,6 +13,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private GameObject _winLosePanel;
     [SerializeField] private TMP_Text _winLoseText;
 
+    public bool isTraining = false;
+
     private void Awake()
     {
         if (!instance) instance = this;
@@ -25,27 +27,31 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        cheeseTimer += Time.deltaTime;
-
-        if(cheeseTimer >= 10)
+        if (!isTraining)
         {
-            CheeseScore(1);
-            cheeseTimer -= 10;
-        }
+            cheeseTimer += Time.deltaTime;
 
-        if(penguinScore >= 50 || cheeseScore <= -10)
-        {
-            _winLosePanel.SetActive(true);
-            _winLoseText.text = "Penguin Win!";
-            Time.timeScale = 0.0f;
-        }
+            if (cheeseTimer >= 10)
+            {
+                CheeseScore(1);
+                cheeseTimer -= 10;
+            }
 
-        if(cheeseScore >= 50 || penguinScore <= -10)
-        {
-            _winLosePanel.SetActive(true);
-            _winLoseText.text = "Cheese Win!";
-            Time.timeScale = 0.0f;
+            if (penguinScore >= 50 || cheeseScore <= -10)
+            {
+                _winLosePanel.SetActive(true);
+                _winLoseText.text = "Penguin Win!";
+                Time.timeScale = 0.0f;
+            }
+
+            if (cheeseScore >= 50 || penguinScore <= -10)
+            {
+                _winLosePanel.SetActive(true);
+                _winLoseText.text = "Cheese Win!";
+                Time.timeScale = 0.0f;
+            }
         }
+        
     }
 
     public void CheeseScore(int score)

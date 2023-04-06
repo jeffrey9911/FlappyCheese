@@ -59,6 +59,17 @@ public class CheeseAgent : Agent
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "LeftEdge")
+        {
+            AddReward(-10f);
+            ScoreManager.instance.CheeseScore(-2);
+            penguinTransform.GetComponent<PenguinAgent>().EndByCheese();
+            EndEpisode();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "TopRock" || collision.tag == "BotRock")
@@ -74,16 +85,7 @@ public class CheeseAgent : Agent
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "LeftEdge")
-        {
-            AddReward(-10f);
-            ScoreManager.instance.CheeseScore(-2);
-            penguinTransform.GetComponent<PenguinAgent>().EndByCheese();
-            EndEpisode();
-        }
-    }
+    
 
     public void EndByPenguin()
     {

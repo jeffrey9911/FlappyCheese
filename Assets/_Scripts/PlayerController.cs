@@ -38,35 +38,38 @@ public class PlayerController : MonoBehaviour
     {
         rb = this.transform.GetComponent<Rigidbody2D>();
 
-        switch (GameObject.FindGameObjectWithTag("Respawn").GetComponent<SceneDataManager>().gameMode)
+        if(!ScoreManager.instance.isTraining)
         {
-            case 0:
-                if(mode == PlayMode.Penguin)
-                {
-                    this.GetComponent<PenguinAgent>().enabled = false;
-                }
-                break;
+            switch (GameObject.FindGameObjectWithTag("Respawn").GetComponent<SceneDataManager>().gameMode)
+            {
+                case 0:
+                    if (mode == PlayMode.Penguin)
+                    {
+                        this.GetComponent<PenguinAgent>().enabled = false;
+                    }
+                    break;
 
-            case 1:
-                if (mode == PlayMode.Penguin)
-                {
-                    this.GetComponent<PenguinAgent>().enabled = false;
-                }
+                case 1:
+                    if (mode == PlayMode.Penguin)
+                    {
+                        this.GetComponent<PenguinAgent>().enabled = false;
+                    }
 
-                if (mode == PlayMode.Cheese)
-                {
-                    this.GetComponent<CheeseAgent>().enabled = false;
-                }
-                break;
+                    if (mode == PlayMode.Cheese)
+                    {
+                        this.GetComponent<CheeseAgent>().enabled = false;
+                    }
+                    break;
 
-            case 2:
-                if (mode == PlayMode.Cheese)
-                {
-                    this.GetComponent<CheeseAgent>().enabled = false;
-                }
-                break;
-            default:
-                break;
+                case 2:
+                    if (mode == PlayMode.Cheese)
+                    {
+                        this.GetComponent<CheeseAgent>().enabled = false;
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
