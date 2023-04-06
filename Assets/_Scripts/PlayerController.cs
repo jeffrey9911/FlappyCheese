@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] float jumpForce = 100;
 
+    [SerializeField] AudioSource jumpSource;
+
     private int isJump = 0;
 
     private bool beHit = true;
@@ -32,17 +34,40 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Sprite penguinDown;
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // BOT -5.4
-        // TOP P:5 C:5.4
-
-        
-    }
-
     private void Start()
     {
         rb = this.transform.GetComponent<Rigidbody2D>();
+
+        switch (GameObject.FindGameObjectWithTag("Respawn").GetComponent<SceneDataManager>().gameMode)
+        {
+            case 0:
+                if(mode == PlayMode.Penguin)
+                {
+                    this.GetComponent<PenguinAgent>().enabled = false;
+                }
+                break;
+
+            case 1:
+                if (mode == PlayMode.Penguin)
+                {
+                    this.GetComponent<PenguinAgent>().enabled = false;
+                }
+
+                if (mode == PlayMode.Cheese)
+                {
+                    this.GetComponent<CheeseAgent>().enabled = false;
+                }
+                break;
+
+            case 2:
+                if (mode == PlayMode.Cheese)
+                {
+                    this.GetComponent<CheeseAgent>().enabled = false;
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     private void Update()
@@ -50,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
         if(mode == PlayMode.Penguin)
         {
-            //if (Input.GetKeyDown(KeyCode.LeftShift)) isJump = 1;
+            if (Input.GetKeyDown(KeyCode.LeftShift)) isJump = 1;
 
             this.GetComponent<SpriteRenderer>().sprite = rb.velocity.y > 0 ? penguinUp : penguinDown;
         }
@@ -78,6 +103,7 @@ public class PlayerController : MonoBehaviour
 
     private void JumpOnClick()
     {
+        jumpSource.Play();
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 

@@ -39,23 +39,6 @@ public class PenguinAgent : Agent
             isJump = 0;
         }
 
-        /*
-        sensor.AddObservation(this.transform.position);
-        sensor.AddObservation(ceilingTransform.position);
-        sensor.AddObservation(bottomTransform.position);
-
-        sensor.AddObservation(sensorArea.topRockC);
-        sensor.AddObservation(sensorArea.topRockP);
-        sensor.AddObservation(sensorArea.botRockC);
-        sensor.AddObservation(sensorArea.botRockP);
-        sensor.AddObservation(sensorArea.goalAreaC);
-        sensor.AddObservation(sensorArea.goalAreaP);
-
-       
-        sensor.AddObservation(RockManager.instance.genInterval);
-        sensor.AddObservation(RockManager.instance.moveSpeed);
-        sensor.AddObservation(RockManager.instance.topRockHeight);
-        sensor.AddObservation(RockManager.instance.botRockHeight);*/
         AddReward(0.5f);
     }
 
@@ -70,15 +53,18 @@ public class PenguinAgent : Agent
         {
             //Debug.Log("Penguin Win!");
             AddReward(10f);
-            //cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
+            ScoreManager.instance.PenguinScore(10);
+            cheeseTransform.GetComponent<CheeseAgent>().AddReward(-10f);
+            cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
             EndEpisode();
         }
 
         if (collision.transform.tag == "BotEdge" || collision.transform.tag == "TopEdge")
         {
             //Debug.Log("Penguin Hit Edge. Penguin Lose.");
-            //cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
+            cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
             AddReward(-10f);
+            ScoreManager.instance.PenguinScore(-1);
             EndEpisode();
         }
     }
@@ -89,7 +75,8 @@ public class PenguinAgent : Agent
         {
             //Debug.Log("Penguin Lose!");
             AddReward(-10f);
-            //cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
+            ScoreManager.instance.PenguinScore(-2);
+            cheeseTransform.GetComponent<CheeseAgent>().EndByPenguin();
             EndEpisode();
         }
     }
