@@ -78,14 +78,20 @@ public class PlayerController : MonoBehaviour
 
         if(mode == PlayMode.Penguin)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift)) isJump = 1;
+            if(GameObject.FindGameObjectWithTag("Respawn").GetComponent<SceneDataManager>().gameMode != 2)
+            {
+                if (Input.GetKeyDown(KeyCode.Q)) isJump = 1;
 
-            this.GetComponent<SpriteRenderer>().sprite = rb.velocity.y > 0 ? penguinUp : penguinDown;
+                this.GetComponent<SpriteRenderer>().sprite = rb.velocity.y > 0 ? penguinUp : penguinDown;
+            }
         }
 
         if (mode == PlayMode.Cheese)
         {
-            if (Input.GetKeyDown(KeyCode.RightShift)) isJump = 1;
+            if (GameObject.FindGameObjectWithTag("Respawn").GetComponent<SceneDataManager>().gameMode != 0)
+            {
+                if (Input.GetKeyDown(KeyCode.P)) isJump = 1;
+            }
         }
 
         if (isJump == 1)
