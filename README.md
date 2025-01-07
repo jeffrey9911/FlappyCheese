@@ -1,1 +1,1 @@
-# 4320-Project-FlappyCheese
+FlappyCheese by reinforcement learning
